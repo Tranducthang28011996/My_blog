@@ -1,0 +1,28 @@
+en:
+  head:
+    about: "About"
+    contact: "Contact"
+    home: "Home"
+    login: "Login"
+    profile: "Profile"
+    logout: "Logout"
+  signup:
+    create_success: "Create congratulation!"
+    email: "Email"
+    password: "Password"
+    password_confir: "Password confirmation"
+    signup: "Sign up"
+    user_name: "User Name"
+  error:
+    error: "error"
+  login:
+    create_success: "Login Congratulation!"
+    create_danger: "Please check information!"
+    login: "Login"
+    remember_password: "Remember password?"
+  index:
+    post: "Post"
+    post_on: "Post on:"
+    create_success: "Create post is congratulation!"
+    create_danger: "Please check information before create new post."
+    login: "Please login to continue!"

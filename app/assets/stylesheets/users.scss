@@ -1,0 +1,31 @@
+@import 'variables/color';
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error !optional;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.header {
+  margin-left: 14% !important;
+}
+
+.navbar-inverse {
+    background-color: $white !important;
+    border-color: $border-inverse !important;
+}
+
+.navbar-nav li a:hover {
+  color:black !important;
+}
+.navbar-nav li hover {
+  color:black !important;
+}

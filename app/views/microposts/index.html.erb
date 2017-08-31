@@ -1,0 +1,41 @@
+<div class="col-md-8 col-md-offset-2">
+<% if current_user %>
+  <%= form_for @micropost do |f|%>
+
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control", rows: Settings.form_post %>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default"><%= t "index.post" %></button>
+    </div>
+  <% end %>
+<% end %>
+  <% @microposts.each do |post| %>
+  <div class="lazy">
+    <div class="col-sm-12">
+      <h2><%= post.user.name %></h2>
+      <hr>
+      <h5>
+        <span class="glyphicon glyphicon-time"></span>
+        <%= t "index.post_on" %><%= post.created_at%>
+      </h5>
+      <hr>
+      <p><%= post.content %></p>
+      <hr>
+      <div class="col-md-12 pre-scrollable" id="post-<%= post.id %>">
+        <div  id="messages-<%= post.id %>" data-post="<%= post.id %>">
+          <%= render post.comments %>
+        </div>
+      </div>
+        <div class="form-group">
+          <%= form_for [post, post.comments.build] do |f| %>
+            <%= f.text_area :content, rows: 2, class: "form-control form-add-comment",
+              placeholder: "Add a comment..." %><br>
+            <%= button_tag "Send", class: "send-message", style: "display:none" %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  <% end %>
+  <%= will_paginate @microposts %>
+</div>
