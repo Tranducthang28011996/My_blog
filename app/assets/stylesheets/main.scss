@@ -1,0 +1,77 @@
+@import 'variables/color';
+
+.search-form {
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+
+  input {
+    border: solid 1px gray;
+    border-radius: 3px;
+    color: black;
+    font-size: 14px;
+    outline: none;
+    padding: 4px;
+    text-align: center;
+    width: 60%;
+  }
+
+  span {
+    color: $state-danger-text;
+    position: absolute;
+    right: 93px;
+    top: 6px;
+  }
+}
+
+.icon-user {
+  margin-right: 189%;
+  float: right;
+  margin-top: -5%;
+  background-image: url('icon.png');
+  background-position: 140px 109px;
+  height: 24px;
+  width: 24px;
+}
+
+.icon-heart {
+  margin-right: 56px;
+  float: right;
+  margin-top: 10%;
+  background-image: url('icon.png');
+  background-position: 298px 53px;
+  height: 24px;
+  width: 24px;
+}
+
+.icon-delete {
+  float: right;
+  background-image: url('icon.png');
+  background-position: 25px 331px;
+  height: 24px;
+  width: 24px;
+}
+
+.icon-delete:hover {
+  background: $border-inverse;
+}
+
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: $white !important;
+  border-color: $border-color;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  margin-right: 57px;
+  margin-top: 12px !important;
+}
+
+.navbar-right {
+  float: right !important;
+  margin-right: 120px !important;
+}
+
+.content-user {
+  margin-top: 5%;
+}

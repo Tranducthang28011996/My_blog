@@ -1,0 +1,44 @@
+<div class="fb-profile">
+  <%= image_tag "image-backgroud", class: "fb-image-lg" %>
+  <%= image_tag "avatar", class: "fb-image-profile thumbnail" %>
+  <div class="follow">
+    <%= render partial: "follow_form", locals: {user: @user} %>
+  </div>
+  <div class="name-profile">
+    <h2><%= @user.name %></h2>
+  </div>
+</div>
+<div class="col-md-8 col-md-offset-1 content-user">
+  <% @microposts.each do |post| %>
+    <div class="delete-post" data-post = "<%= post.id %>">
+      <div class="col-sm-12 fade-out-post-<%= post.id %>">
+
+        <h2><%= post.user.name %></h2>
+        <hr>
+        <h5>
+          <span class="glyphicon glyphicon-time"></span>
+          <%= t "index.post_on" %><%= post.created_at%>
+          <% if current_user.admin? || !current_user?(post.user) %>
+            <span class="icon-delete"></span>
+          <% end %>
+        </h5>
+        <hr>
+        <p><%= post.content %></p>
+        <hr>
+        <div class="col-md-12 pre-scrollable" id="post-<%= post.id %>">
+          <div  id="messages-<%= post.id %>" data-post="<%= post.id %>">
+            <%= render post.comments %>
+          </div>
+        </div>
+          <div class="form-group">
+            <%= form_for [post, post.comments.build] do |f| %>
+              <%= f.text_area :content, rows: Settings.paginate, class: "form-control form-add-comment",
+                placeholder: "Add a comment..." %><br>
+              <%= button_tag "Send", class: "send-message", style: "display:none" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+  <div><%= will_paginate @microposts %></div>
+</div>

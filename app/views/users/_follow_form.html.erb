@@ -1,0 +1,7 @@
+<% if current_user.following? user %>
+  <%= link_to "Unfollow", unfollow_path(user), method: :delete, class: "btn btn-default btn-follow" %>
+<% else %>
+  <%= link_to "follow", follow_path(user), method: :post, class: "btn btn-default btn-follow" %>
+<% end %>
+<span>following(<%= user.following.size %>)</span>|
+<span>followers(<%= user.followers.size %>)</span>
