@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: da84twcxv
+  api_key: '729392473934592'
+  api_secret: fxBROXJ698D0ipJ6VAgRhUAwPMQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: da84twcxv
+  api_key: '729392473934592'
+  api_secret: fxBROXJ698D0ipJ6VAgRhUAwPMQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: da84twcxv
+  api_key: '729392473934592'
+  api_secret: fxBROXJ698D0ipJ6VAgRhUAwPMQ
+  enhance_image_tag: true
+  static_image_support: false
