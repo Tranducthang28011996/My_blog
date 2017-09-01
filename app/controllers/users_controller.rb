@@ -19,11 +19,25 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by id: params[:id]
     @microposts = @user.microposts.created_sort.
-      paginate page: params[:page], per_page: Settings.paginate
+    paginate page: params[:page], per_page: Settings.paginate
+  end
+
+  def update
+    @user = User.find_by id: params[:id]
+    if @user.update avatar: params[:user][:avatar]
+      redirect_to @user
+    else
+
+    end
   end
 
   private
-    def user_params
-      params.require(:user).permit :name, :email, :password, :password_confirmation
-    end
+
+  def user_params
+    params.require(:user).permit :name, :email, :password, :password_confirmation
+  end
+
+  def params_avatar
+    params.require(:user).permit :avatar
+  end
 end
