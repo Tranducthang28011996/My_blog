@@ -1,6 +1,11 @@
 <div class="fb-profile">
-  <%= image_tag "image-backgroud", class: "fb-image-lg" %>
-  <%= image_tag "avatar", class: "fb-image-profile thumbnail" %>
+  <%= image_tag @user.avatar.big_image.url, class: "fb-image-lg" %>
+  <%= image_tag @user.avatar.big_image.url, class: "fb-image-profile thumbnail" %>
+  <div class="upload-image" data-toggle="modal" data-target="#myModal">
+    <button class="btn btn-default btn-xs">
+     <i class="glyphicon glyphicon-camera"></i>
+    </button>
+  </div>
   <div class="follow">
     <%= render partial: "follow_form", locals: {user: @user} %>
   </div>
@@ -41,4 +46,22 @@
     </div>
   <% end %>
   <div><%= will_paginate @microposts %></div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Avatar upload!</h4>
+      </div>
+      <div class="modal-body">
+      <%= form_for @user, method: :patch do |f| %>
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit%>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

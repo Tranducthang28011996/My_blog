@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   before_save {email.downcase!}
 
+  attr_accessor :avatar, :avatar_cache, :remove_avatar
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :email, presence: true,
@@ -13,10 +15,7 @@ class User < ApplicationRecord
   validates :name, presence: true,
     length: {maximum: Settings.validates.maximum_name}
   validates :password, presence: true,
-    length: {minimum: Settings.validates.minimum_password},
-    confirmation: true
-  validates :password_confirmation, presence: true,
-    length: {minimum: Settings.validates.minimum_password}
+    length: {minimum: Settings.validates.minimum_password}, allow_nil: true
 
   has_many :active_follows, class_name: Follow.name,
     foreign_key: "follower_id",
@@ -32,6 +31,8 @@ class User < ApplicationRecord
   has_many :comments
 
   enum role: [:user, :admin]
+
+  mount_uploader :avatar, AvatarUploader
 
   class << self
 

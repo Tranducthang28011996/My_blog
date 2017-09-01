@@ -14,14 +14,17 @@ class MicropostsController < ApplicationController
       flash[:success] = t "index.create_success"
       redirect_to root_url
     else
-      flash[:danger] = t "index.create_danger"
       redirect_to root_url
     end
   end
 
   def destroy
-    @micropost = Micropost.find params[:post_id]
-    @micropost.destroy
+    @micropost = Micropost.find_by id: params[:post_id]
+    if @micropost
+      @micropost.destroy
+    else
+      redirect_to root_url
+    end
   end
 
   private
