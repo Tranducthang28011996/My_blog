@@ -27,7 +27,16 @@ class UsersController < ApplicationController
     if @user.update avatar: params[:user][:avatar]
       redirect_to @user
     else
+      flash[:danger] = t "flash.danger"
+      redirect_to root_path
+    end
+  end
 
+  def search
+    if params[:search][:search].present?
+      @users = User.search_user(params[:search][:search]).paginate page: params[:page], per_page: Settings.paginate
+    else
+      redirect_to root_path
     end
   end
 

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   post "follow/:id", to: "follows#create", as: "follow"
   delete "unfollow/:id", to: "follows#destroy", as: "unfollow"
 
+  post "search", to: "users#search"
+
   root "microposts#index"
 
   get "/login", to: "sessions#new"

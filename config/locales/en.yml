@@ -26,3 +26,7 @@ en:
     create_success: "Create post is congratulation!"
     create_danger: "Please check information before create new post."
     login: "Please login to continue!"
+   flash:
+    danger: "Update not congratulation!"
+
+
