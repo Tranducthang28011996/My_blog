@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  scope :search_user, lambda { |name| where("name LIKE '%#{name}%'") if name.present?}
+
   validates :email, presence: true,
     length: {maximum: Settings.validates.maximum_email},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: true

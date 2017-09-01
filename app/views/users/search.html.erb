@@ -1,0 +1,11 @@
+<div class="col-md-8 col-md-offset-2">
+  <% @users.each do |user| %>
+  <div class="lazy">
+    <div class="col-sm-12">
+      <h2><%= link_to user.name, user_path(user) %></h2>
+      <hr>
+    </div>
+  </div>
+  <% end %>
+  <%= will_paginate @users %>
+</div>
