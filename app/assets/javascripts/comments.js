@@ -23,8 +23,8 @@ $(document).ready(function(){
       },
     })
     .done(function(result) {
-      $('#messages-' + result.post_id).append(result.user_name +":"+ result.content + '<br>');
-      txt_mess.val("");
+      $('#messages-' + result.post_id).append(result.user_name +':'+ result.content + '<br>');
+      txt_mess.val('');
       txt_mess.focus();
     });
 

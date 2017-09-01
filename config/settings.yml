@@ -4,3 +4,8 @@ validates:
   minimum_password: 6
 paginate: 2
 form_post: 4
+image:
+  height: 81
+  with: 141
+  big_height: 252
+  big_with: 754
